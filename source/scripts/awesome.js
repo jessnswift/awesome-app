@@ -34,10 +34,18 @@ attach event listener to button
 */
 const button = buttonFactory("button--submit", "Create Card")
 button.addEventListener("click", function () {
-    const text = cardTextInput.value
+    const userEntry = cardTextInput.value
+
+    output.appendChild(cardFactory("card", userEntry))
 })
 
 fragment.appendChild(button)
 
 output.appendChild(fragment)
 // create card component
+const cardFactory = (classList, textContent) => {
+    const theSection = document.createElement("section")
+    theSection.classList = classList
+    theSection.textContent = textContent
+    return theSection
+}
